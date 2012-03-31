@@ -1,0 +1,47 @@
+<html> 
+<head> 
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script> 
+    <script src="http://malsup.github.com/jquery.form.js"></script> 
+ 
+    <script> 
+        // wait for the DOM to be loaded 
+        $(document).ready(function() {
+        	var options = { 
+        	        target:        '#resultgrid',   // target element(s) to be updated with server response  
+        	       // success:       showResponse  // post-submit callback
+        	        url:    '/bn/ajax/'  
+        	};
+            // bind 'myForm' and provide a simple callback function 
+            $('#bnform').submit(function() { 
+            	 $(this).ajaxSubmit(options); 
+            	 return false; 
+            }); 
+        }); 
+    </script> 
+    <title>bn facade</title>
+</head> 
+<body>
+
+<form id="bnform" action="/bn/ask/" method="post">
+
+<table>
+
+<tr>
+ <td>Комнат </td><td>от <input type="text" name="roomsFr" id="roomsFr" value="{{ roomsFr|default:"1" }}" /></td> 
+    <td>до <input type="text" name="roomsTo" id="roomsTo" value="{{ roomsTo|default:"3" }}" /></td>
+</tr>
+
+<tr>
+ <td>Цена </td><td>от <input type="text" name="priceFr" id="priceFr" value="{{ priceFr|default:"1000" }}" /></td> 
+      <td>до <input type="text" name="priceTo" id="priceTo" value="{{ priceTo|default:"4000" }}" /></td>
+ </tr>
+<tr> 
+ 
+<td></td><td><input type="submit" value="Ok" /></td><td></td>
+</tr>
+</table>
+<div id="resultgrid">
+{% include "bn/table.html" %}
+</div>
+</form>
+</body>

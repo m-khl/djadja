@@ -1,0 +1,22 @@
+
+{% if trs %}
+  <table>
+  {% for cells in trs %}
+  			{% if cells  %}
+	  	  		<tr>
+	  	  		 <td>{{ cells|slice:"12:13"|join:"" }}</td>
+	  	  		 <td>{{ cells|slice:"1:2"|join:"" }}</td>
+	  	  		 <td>{{ cells|slice:"2:3"|join:"" }}</td>
+	  	  		 <td>{{ cells|slice:"3:4"|join:"" }}</td>
+	  	  		 <td>{{ cells|slice:"4:5"|join:"" }}</td>
+	  	  		 <td>{{ cells|slice:"5:6"|join:"" }}</td>
+	  	  		 <td>{{ cells|slice:"6:7"|join:"" }}</td>
+	  	  		 <td>{{ cells|slice:"7:8"|join:"" }}</td>
+	  	  		 <td>{{ cells|slice:"13:14"|join:"" }}</td>
+	  	  		 <td>{{ cells|slice:"8:9"|join:""  }}</td>
+	  	  		 <td>{{ cells|slice:"14:15"|join:"" }}</td>
+	  	  		 </tr>
+	  	  {% endif %}
+  {% endfor %}
+  </table>
+{% endif %}
