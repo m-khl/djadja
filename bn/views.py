@@ -20,7 +20,6 @@ def handleAsk(request):
     
     url = 'http://www.bn.ru/zap_fl.phtml?kkv1={roomsFr}&kkv2={roomsTo}&price1={priceFr}&price2={priceTo}&so1=&so2=&sk1=&sk2=&type%5B%5D=1&type%5B%5D=3&sorttype=0&sort_ord=0&{metros}&text='.format(**formData)
     formData["url"]=url
-    print (url)
     req = urllib2.Request(url, headers={'User-Agent' : "Mozilla Firefox"}) 
     f = urllib2.urlopen(req) 
     doc = libxml2dom.parse(f, html=1)
