@@ -37,6 +37,18 @@
  </tr>
 <tr> 
  
+ <tr>
+ <td>
+ {{ checked }}
+ <select name="stations" size="20" multiple>
+ {% for code, text, mark in stations %} 
+ <option value="{{ code }}"
+ {% if mark %} selected
+ {% endif %}>
+ {{ text }}</option>
+ {% endfor %}
+ </select>
+ </td></tr>
 <td></td><td><input type="submit" value="Ok" /></td><td></td>
 </tr>
 </table>

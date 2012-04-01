@@ -1,6 +1,9 @@
 
 {% if trs %}
   <table>
+  {% if url %}
+  <thead><tr><td><a href="{{ url }}">bn.ru</a></td></tr></thead>
+  {% endif %}
   {% for cells in trs %}
   			{% if cells  %}
 	  	  		<tr>

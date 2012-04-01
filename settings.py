@@ -1,3 +1,5 @@
+import libxml2dom
+import urllib2
 # Django settings for mysite project.
 
 DEBUG = True
@@ -78,3 +80,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
 )
+
+SUBWAYS = [[opt.getAttribute('value'),opt.textContent]
+            for opt in libxml2dom.parse(
+                            urllib2.urlopen(
+                                     urllib2.Request('http://www.bn.ru/zap_fl_w.phtml', 
+                                     headers={'User-Agent' : "Mozilla Firefox"})), html=1)
+                       .xpath('//select[@id="metro"]/option')]
